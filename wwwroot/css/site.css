@@ -1,0 +1,194 @@
+h1{
+    color:white;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+}
+.main-options{
+    cursor: pointer;
+}
+.main-options:hover {
+    color: #7066e0;
+}
+.header-main-content {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.header-content {
+    display: flex;
+    margin-bottom: 30px;
+    color: white
+}
+.header-content h3{
+    margin-left:20px;
+    margin-right:20px;
+}
+input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+input[type=checkbox]:checked {
+    background-color: #006BD9;
+}
+body {
+    padding: 30px 50px;
+    background:black;
+}
+.top-icon{
+    width:50px;
+    height:50px;
+}
+.head {
+    display: flex;
+    /*padding: 0 50px;*/
+    margin-top: 30px;
+    padding: 0 10px;
+}
+.head h1 {
+    padding:5px 20px;
+    cursor:pointer;
+    color:white;
+}
+.shopsOptions{
+    text-decoration:none;   
+}
+#example tr {
+    border: none;
+}
+#all {
+    margin-right: 10px;
+}
+.btn {
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size:17px;
+}
+.add {
+    background: #7066e0;
+}
+.delete {
+    background: #fa3131;
+}
+.buttonAdd {
+    width:100%;
+    text-align: end;
+    margin-top: auto;
+}
+.inputAdd {
+    width: 100%;
+    border-radius: 5px;
+    border-color: #a1a0a0;
+    border-style: solid;
+}
+.table {
+    background: #ffffff;
+    border-radius: 20px;
+}
+.productImg{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    padding:15px;
+}
+.table-content {
+    margin-top:20px;
+    padding: 20px;
+}
+.values {
+    display: flex;
+    justify-content: end;
+}
+.values h3 {
+    padding: 5px 20px;
+    font-size: 20px;
+    color:white;
+}
+.link {
+    color: #9e3bf5;
+}
+
+/*Despezas*/
+.despaza-lucros-divisao{
+    width:100%;
+    display:flex;
+}
+.despaza-lucros-divisao-dados {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.despaza-lucros-divisao-dados td{
+    padding:10px 50px 10px 50px
+}
+.divisao {
+    width: 50%;
+}
+
+.lucros-legenda {
+    text-align: right;
+}
+.despezas-content{
+    padding: 30px 30px;
+}
+.despezas-content button {
+    border-radius: 5px;
+    border: none;
+    background-color: #7066e0;
+    color:white;
+}
+.showMore{
+    display:flex;
+    justify-content:center;
+    text-align:center;
+    margin-top:30px;
+}
+.showMore h4{
+    cursor:pointer;
+}
+.actionIcon{
+    cursor:pointer;
+}
+.filters{
+    display:flex;
+    color:white;
+    justify-content:space-between;
+}
+.filters input[type=text]{
+    width:50%;
+    border:none;
+    border-radius:5px;
+    padding:1px;
+
+}
+.filters input[type=checkbox]{
+    border: 1px solid red;
+    border-radius:5px;
+}
+.checkboxFilter{
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+.vender{
+    background:green;
+}
+.pesquisa{
+    width:40%;
+    height:20%;
+    display:flex;
+    align-content:center;
+}
+.campo-pesquisa {
+    border-radius: 4px;
+    width:100%;
+    padding:2%;
+}
+.tipos-artigos{
+    display:flex;
+}

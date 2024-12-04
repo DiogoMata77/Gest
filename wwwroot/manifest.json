@@ -1,0 +1,13 @@
+//Este ficheiro serve para a criacao de progressive web apps
+
+{
+  "name": "Gest",
+  "short_name": "Gest",
+  //Para criar os logos ->    npx pwa-asset-generator ~/assets/logo-removebg-preview.png icons
+  "icons": [
+
+  ],
+  "display": "fullscrean"
+}
+
+//Toturial https://www.youtube.com/watch?v=sFsRylCQblw

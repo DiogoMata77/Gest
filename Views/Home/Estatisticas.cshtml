@@ -1,0 +1,181 @@
+﻿@model List<Estatisticas>
+@{
+    ViewData["Title"] = "Estatisticas";
+}
+
+<link href="~/css/estatisticas.css" rel="stylesheet" />
+
+<div>
+    <div class="graphic-container">
+        <div class="inputs-estatisticas">
+            <div>
+                <label for="ano">Ano</label>
+                <select name="ano" id="ano">
+                    
+                    @* Validamos se o model tem conteudo  *@
+                    @if (ViewData["Anos"] != null)
+                    {
+                        var anos = ViewData["Anos"] as int[];
+                        foreach(var ano in anos)
+                        {
+                            <option value="@ano">@ano</option>
+                        }
+                    }
+
+                </select>
+            </div>
+
+            @if (Model.Count > 0)
+            {
+                foreach (var estatistica in Model)
+                {
+                    if (estatistica.valorCompra != null && estatistica.valorCompra.Count > 0)
+                    {
+                        <script>
+                            // Passe o valor de Razor para a variável JS
+                            var jan = @estatistica.valorCompra[0];
+                            var fev = @estatistica.valorCompra[1];
+                            var mar = @estatistica.valorCompra[2];
+                            var abr = @estatistica.valorCompra[3];
+                            var mai = @estatistica.valorCompra[4];
+                            var jun = @estatistica.valorCompra[5];
+                            var jul = @estatistica.valorCompra[6];
+                            var ago = @estatistica.valorCompra[7];
+                            var set = @estatistica.valorCompra[8];
+                            var oct = @estatistica.valorCompra[9];
+                            var nov = @estatistica.valorCompra[10];
+                            var dez = @estatistica.valorCompra[11];
+                        </script>
+                    }
+                    else
+                    {
+                        <script>
+                            var jan = 0;
+                            var fev = 0;
+                            var mar = 0;
+                            var abr = 0;
+                            var mai = 0;
+                            var jun = 0;
+                            var jul = 0;
+                            var ago = 0;
+                            var set = 0;
+                            var oct = 0;
+                            var nov = 0;
+                            var dez = 0;
+                        </script>
+                    }
+
+                    if(estatistica.valorVenda != null && estatistica.valorVenda.Count > 0)
+                    {
+                        <script>
+                            var janv = @estatistica.valorVenda[0];
+                            var fevv = @estatistica.valorVenda[1];
+                            var marv = @estatistica.valorVenda[2];
+                            var abrv = @estatistica.valorVenda[3];
+                            var maiv = @estatistica.valorVenda[4];
+                            var junv = @estatistica.valorVenda[5];
+                            var julv = @estatistica.valorVenda[6];
+                            var agov = @estatistica.valorVenda[7];
+                            var setv = @estatistica.valorVenda[8];
+                            var octv = @estatistica.valorVenda[9];
+                            var novv = @estatistica.valorVenda[10];
+                            var dezv = @estatistica.valorVenda[11];
+                        </script>
+                    }
+                    else
+                    {
+                        <script>
+                            var janv = 0;
+                            var fevv = 0;
+                            var marv = 0;
+                            var abrv = 0;
+                            var maiv = 0;
+                            var junv = 0;
+                            var julv = 0;
+                            var agov = 0;
+                            var setv = 0;
+                            var octv = 0;
+                            var novv = 0;
+                            var dezv = 0;
+                        </script>
+                    }
+
+                    if (estatistica.Lucro != null && estatistica.Lucro.Count > 0)
+                    {
+                        <script>
+                            var janl = @estatistica.Lucro[0];
+                            var fevl = @estatistica.Lucro[1];
+                            var marl = @estatistica.Lucro[2];
+                            var abrl = @estatistica.Lucro[3];
+                            var mail = @estatistica.Lucro[4];
+                            var junl = @estatistica.Lucro[5];
+                            var jull = @estatistica.Lucro[6];
+                            var agol = @estatistica.Lucro[7];
+                            var setl = @estatistica.Lucro[8];
+                            var octl = @estatistica.Lucro[9];
+                            var novl = @estatistica.Lucro[10];
+                            var dezl = @estatistica.Lucro[11];
+                        </script>
+                    }
+                    else
+                    {
+                        <script>
+                            var janl = 0;
+                            var fevl = 0;
+                            var marl = 0;
+                            var abrl = 0;
+                            var mail = 0;
+                            var junl = 0;
+                            var jull = 0;
+                            var agol = 0;
+                            var setl = 0;
+                            var octl = 0;
+                            var novl = 0;
+                            var dezl = 0;
+                        </script>
+                    }
+
+                }
+            }
+            else
+            {
+                <p>No data available.</p>
+            }
+        </div>
+
+        <canvas id="myChart" width="400" height="150"></canvas>
+    </div>
+    <script src="~/js/estatisticas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                // Legenda das colunas
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                // Cria as linhas do gráfico
+                datasets: [
+                    {
+                        label: 'Compras',
+                        data: [jan,fev,mar,abr,mai,jun,jul,ago,set,oct,nov,dez],
+                        borderColor: 'rgba(233, 15, 15, 0.8)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Vendas',
+                        data: [janv, fevv, marv, abrv, maiv, junv, julv, agov, setv, octv, novv, dezv],
+                        borderColor: 'rgba(71, 233, 17, 0.8)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Lucros',
+                        data: [janl, fevl, marl, abrl, mail, junl, jull, agol, setl, octl, novl, dezl],
+                        borderColor: 'rgba(147, 15, 233, 0.8)',
+                        borderWidth: 1
+                    },
+                ]
+            }
+        });
+    </script>
+</div>

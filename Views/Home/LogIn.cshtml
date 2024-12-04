@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "LogIn";
+}
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title> Gest - @ViewData["Title"]</title>
+        <link rel="stylesheet" href="~/css/logIn.css"/>
+        <link rel="icon" type="image/x-icon" href="~/assets/logo.jpeg" />
+    </head>
+    <body>
+    <div class="box">
+        <form>
+            <span class="text-center">log in</span>
+            <div class="input-container">
+                <input type="text" class="em" required />
+                <label>Email</label>
+            </div>
+            <div class="input-container">
+                <input type="password" class="pw" required/>
+                <label>Password</label>
+            </div>
+            <button type="button" class="btn" id="loginBtn">submit</button>
+            <a href="/Home/CreateAcount" class="singUp">Sing Up</a>
+        </form>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/login.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+    </html>

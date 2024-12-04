@@ -1,0 +1,47 @@
+﻿@using Gest.Controllers;
+@{
+    ViewData["Title"] = "Artigos";
+}
+@model List<Produtos>
+<div>
+    <div class="head">
+        <div class="pesquisa">
+            <input id="campo-de-pesquisa" placeholder="Pesquise" class="campo-pesquisa"/>
+        </div>
+        <div class="tipos-artigos">
+            <h1 id="venda" class="main-options" onclick="GerarProdutos(0)">Stock</h1>
+            <h1 id="compra" class="main-options" onclick="GerarProdutos(1)">Vendido</h1>
+        </div>
+        <div class="buttonAdd">
+            <button class="btn vender" onclick='Vender()'>Vender</button>
+            <button class="btn add" onclick='Add()'>Adicionar Artigo</button>
+            <button class="btn delete" onclick='Delete()'>Apagar artigos</button>
+        </div>
+    </div>
+</div>
+<div class="table table-content">
+     <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th><input onchange="selectAll()" type="checkbox" id="all"/></th>
+                    <th>Nome</th>
+                    <th>Imagem</th>
+                    <th>Link do Produto</th>
+                    <th>Quantidade</th>
+                    <th>Compra</th>
+                    <th>Venda</th>
+                    <th>Vender</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+            </thead>
+            <tbody id="tableContent">
+                @Html.Raw(ViewBag.Content)
+            </tbody>
+    </table>
+</div>
+<div class="values">
+    <h3 id="vCompra">Valor de Compra: 0€</h3>
+    <h3 id="vVenda">Valor de Venda: 0€</h3>
+    <h3 id="total">Lucro: 0€</h3>
+</div>

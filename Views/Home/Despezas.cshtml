@@ -1,0 +1,149 @@
+﻿@using Gest.Controllers;
+@{
+    ViewData["Title"] = "Despezas e Lucros";
+}
+@model List<DespezasClass>
+<div class="table despaza-lucros-divisao">
+    <div class="divisao">
+        <div class="despezas-content despezas-legenda">
+            <h3>DESPEZAS</h3>
+            <button onclick="AdicionarDespesa(0)">Registar despeza</button>
+        </div>
+        @*@{
+            string[]? valuesDespezasDesc = ViewBag.Despeza?.ToString().Split(";");
+            string[]? valuesDespezasPrice = ViewBag.Preco?.ToString().Split(";");
+            string[]? valuesDespezasID = ViewBag.Id?.ToString().Split(";");
+        }*@
+        <div class="despaza-lucros-divisao-dados">
+            <table>
+                <tbody>
+                        @*@foreach (var despeza in Model)
+                        {
+                            @if (despeza.Finalidade == 0)
+                            {
+                                <tr>
+                                    <td>@despeza.Desc</td>
+                                    <td>@despeza.Price €</td>
+                                <td><img onclick='DeleteDespeza(@despeza.Id)' alt='delete' src='/assets/delete.png' /> </td>
+                                </tr>
+                            }
+                        }*@
+
+                        
+                    @if (Model.Count > 0)
+                    {
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            var despeza = Model[i];
+                            @if (despeza.Finalidade == 0 && i <= 5)
+                            {
+                                <tr>
+                                    <td>@despeza.Desc</td>
+                                    <td>@despeza.Price €</td>
+                                    <td>@despeza.Data</td>
+                                    <td><img onclick='DeleteDespeza(@despeza.Id)' alt='delete' src='/assets/delete.png' /> </td>
+                                </tr>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div style="display:flex;justify-content:center;">
+                            <h3>Precisa de ganhar mais dinheiro.</h3>
+                        </div>
+                    }
+
+                    @*or*@
+
+                    @*@if (valuesDespezasID != null && valuesDespezasID.Length > 0)
+                    {
+                        @for (int i = 0; i +1 < valuesDespezasID.Length ; i++)
+                        {
+                            string valueDesc = valuesDespezasDesc[i];
+                            string valueID = valuesDespezasID[i];
+                            string valuePrice = valuesDespezasPrice[i];
+                            <tr>
+                                <td style="color:red;">@valuePrice</td>
+                                <td>@valueDesc</td>
+                                <td><img onclick='DeleteDespeza(@valueID)' alt='delete' src='/assets/delete.png' /> </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <div style="display:flex;justify-content:center;">
+                            <h3>Precisa de gastar mais dinheiro.</h3>
+                        </div>
+                    }*@
+                </tbody>
+            </table>
+        </div>
+        <div class="showMore">
+            <h4>Mostrar mais ></h4>
+        </div>
+    </div>
+    <div class="divisao">
+        <div class="despezas-content lucros-legenda">
+            <h3>LUCROS</h3>
+            <button onclick="AdicionarDespesa(1)">Registar Lucro</button>
+        </div>
+        @*@{
+            string[]? valuesLucroDesc = ViewBag.Lucros?.ToString().Split(";");
+            string[]? valuesLucroPrice = ViewBag.PrecoL?.ToString().Split(";");
+            string[]? valuesLucroID = ViewBag.IdL?.ToString().Split(";");
+        }*@
+
+        <div class="despaza-lucros-divisao-dados">
+            <table>
+                <tbody>
+                    @if(Model.Count > 0)
+                    {
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            var despeza = Model[i];
+                            @if (despeza.Finalidade == 1 && i <= 5)
+                            {
+                                <tr>
+                                    <td>@despeza.Desc</td>
+                                    <td>@despeza.Price €</td>
+                                    <td>@despeza.Data</td>
+                                    <td><img onclick='DeleteDespeza(@despeza.Id)' alt='delete' src='/assets/delete.png' /> </td>
+                                </tr>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div style="display:flex;justify-content:center;">
+                            <h3>Precisa de ganhar mais dinheiro.</h3>
+                        </div>
+                    }
+
+                @*@if (valuesLucroDesc != null && valuesLucroDesc.Length > 0)
+                {
+                    @for (int i = 0; i < valuesLucroID.Length; i++)
+                    {
+                        string valueDesc = valuesLucroDesc[i];
+                        string valueID = valuesLucroID[i];
+                        string valuePrice = valuesLucroPrice[i];
+                        <tr>
+                            <td style="color:green;">@valuePrice</td>
+                            <td>@valueDesc</td>
+                                <td><img onclick='DeleteLucro(@valueID)' alt='delete' src='/assets/delete.png' /> </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div style="display:flex;justify-content:center;">
+                        <h3>Precisa de ganhar mais dinheiro.</h3>
+                    </div>
+                }*@
+                </tbody>
+            </table>
+        </div>
+        <div class="showMore">
+            <h4>Mostrar mais ></h4>
+        </div>
+    </div>
+</div>
